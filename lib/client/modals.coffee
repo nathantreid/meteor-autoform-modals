@@ -141,7 +141,7 @@ Template.afModal.events
 		Session.set 'cmMeteorMethod', t.data.meteormethod
 		Session.set 'cmModalDialogClass', t.data.dialogClass
 
-		cmOnSuccessCallback = t.data.onSuccess
+		cmOnSuccessCallback = if t.data.onSuccess then t.data.onSuccess.callback else undefined
 
 		if not _.contains registeredAutoFormHooks, t.data.formId
 			AutoForm.addHooks t.data.formId,
